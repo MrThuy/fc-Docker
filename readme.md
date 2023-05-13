@@ -115,7 +115,13 @@ ___
 * down -> mata os containers
 * -d -> modo detached, libera o terminal
 * --build -> rebuild as imagens do Dockerfile
-
----
+##
     docker-compose ps
- mostra todos os container da docker-compose
+mostra todos os container da docker-compose
+##
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+adicionar dentro do docker-compose para aguardar subir outro conteiner, mas antes na imagem precisa instalar o dockerize https://github.com/jwilder/dockerize
+* **-wait** -> + *conexão://ip:porta* aguarda ter resposta nesse caminho
+* **-timeout** -> + *tempo* tempo máximo para esperar
+* **docker-entrypoint.sh** -> ultimo parametro do comando, executa quando a conexão esta ok
+uma alternativa do dockerize -> https://github.com/codeedu/docker-wait-for-it
