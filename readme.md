@@ -106,7 +106,9 @@ Mostra o uso de disco
 ##
     docker run --rm -d --name nginx --network host nginx
 *  --network -> + nome da rede para criar o conteiner na rede especifica
-
+##
+    docker network connect host nginx
+conecta um conteiner a uma network
 ___
 ## Docker Compose
 
